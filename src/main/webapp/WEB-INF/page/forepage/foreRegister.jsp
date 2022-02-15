@@ -22,8 +22,8 @@
                 <div class="breadcrumb-container">
                     <nav>
                         <ul>
-                            <li class="parent-page"><a href="index.html">Home</a></li>
-                            <li>Register</li>
+                            <li class="parent-page"><a href="index.html">首页</a></li>
+                            <li>注册</li>
                         </ul>
                     </nav>
                 </div>
@@ -49,28 +49,28 @@
                 <form action="/fore/foreRegister" method="post" class="loginForm">
 
                     <div class="login-form">
-                        <h4 class="login-title">Register</h4>
+                        <h4 class="login-title">注册</h4>
 
                         <div class="row">
                             <div class="col-md-6 col-12 mb-20">
-                                <label>姓名</label>
-                                <input class="mb-0" type="text" name="name" id="name" placeholder="Name">
+                                <label>用户名</label>
+                                <input class="mb-0" type="text" name="name" id="name" placeholder="输入你的用户名">
                             </div>
                             <div class="col-md-6 col-12 mb-20">
-                                <label>pwd</label>
-                                <input class="mb-0" type="text" name="password" id="password" placeholder="">
+                                <label>密码</label>
+                                <input class="mb-0" type="text" name="password" id="password" placeholder="输入你的密码">
                             </div>
                             <div class="col-md-12 mb-20">
                                 <label>地址:</label>
-                                <input class="mb-0" type="text" name="address" id="address" placeholder="Email Address">
+                                <input class="mb-0" type="text" name="address" id="address" placeholder="输入你的邮箱">
                             </div>
                             <div class="col-md-6 mb-20">
                                 <label>手机:</label>
-                                <input class="mb-0" type="password" name="phone" id="phone" placeholder="Password">
+                                <input class="mb-0" type="password" name="phone" id="phone" placeholder="请输入你的手机号">
                             </div>
 
                             <div class="col-12">
-                                <button type="submit" class="register-button mt-0">Register</button>
+                                <button type="submit" class="register-button mt-0">注册</button>
                             </div>
                         </div>
                     </div>

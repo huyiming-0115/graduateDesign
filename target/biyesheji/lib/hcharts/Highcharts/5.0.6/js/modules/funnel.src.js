@@ -6,14 +6,14 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * Highcharts funnel module
          *
@@ -23,14 +23,14 @@
          */
         /* eslint indent:0 */
         'use strict';
-
+        
         // create shortcuts
         var seriesType = Highcharts.seriesType,
             seriesTypes = Highcharts.seriesTypes,
             noop = Highcharts.noop,
             each = Highcharts.each;
-
-
+        
+        
         seriesType('funnel', 'pie', {
                 animation: false,
                 center: ['50%', '50%'],
@@ -40,27 +40,27 @@
                 neckHeight: '25%',
                 reversed: false,
                 size: true, // to avoid adapting to data label size in Pie.drawDataLabels
-
-
+                
+                
             },
-
+            
             // Properties
             {
                 animate: noop,
-
+                
                 /**
                  * Overrides the pie translate method
                  */
-                translate: function() {
-
+                translate: function () {
+                    
                     var
-                    // Get positions - either an integer or a percentage string must be given
-                        getLength = function(length, relativeTo) {
+                        // Get positions - either an integer or a percentage string must be given
+                        getLength = function (length, relativeTo) {
                             return (/%$/).test(length) ?
                                 relativeTo * parseInt(length, 10) / 100 :
                                 parseInt(length, 10);
                         },
-
+                        
                         sum = 0,
                         series = this,
                         chart = series.chart,
@@ -84,7 +84,7 @@
                         path,
                         fraction,
                         half = options.dataLabels.position === 'left' ? 1 : 0,
-
+                        
                         x1,
                         y1,
                         x2,
@@ -92,23 +92,23 @@
                         y3,
                         x4,
                         y5;
-
+                    
                     // Return the width at a specific y coordinate
-                    series.getWidthAt = getWidthAt = function(y) {
+                    series.getWidthAt = getWidthAt = function (y) {
                         var top = (centerY - height / 2);
-
+                        
                         return y > neckY || height === neckHeight ?
                             neckWidth :
                             neckWidth + (width - neckWidth) * (1 - (y - top) / (height - neckHeight));
                     };
-                    series.getX = function(y, half) {
+                    series.getX = function (y, half) {
                         return centerX + (half ? -1 : 1) * ((getWidthAt(reversed ? 2 * centerY - y : y) / 2) + options.dataLabels.distance);
                     };
-
+                    
                     // Expose
                     series.center = [centerX, centerY, height];
                     series.centerX = centerX;
-
+                    
                     /*
                      * Individual point coordinate naming:
                      *
@@ -127,18 +127,16 @@
                      *       |               |
                      *     x3,y5 _________ x4,y5
                      */
-
-
-
-
+                    
+                    
                     // get the total sum
-                    each(data, function(point) {
+                    each(data, function (point) {
                         if (!ignoreHiddenPoint || point.visible !== false) {
                             sum += point.y;
                         }
                     });
-
-                    each(data, function(point) {
+                    
+                    each(data, function (point) {
                         // set start and end positions
                         y5 = null;
                         fraction = sum ? point.y / sum : 0;
@@ -151,23 +149,23 @@
                         tempWidth = getWidthAt(y3);
                         x3 = centerX - tempWidth / 2;
                         x4 = x3 + tempWidth;
-
+                        
                         // the entire point is within the neck
                         if (y1 > neckY) {
                             x1 = x3 = centerX - neckWidth / 2;
                             x2 = x4 = centerX + neckWidth / 2;
-
+                            
                             // the base of the neck
                         } else if (y3 > neckY) {
                             y5 = y3;
-
+                            
                             tempWidth = getWidthAt(neckY);
                             x3 = centerX - tempWidth / 2;
                             x4 = x3 + tempWidth;
-
+                            
                             y3 = neckY;
                         }
-
+                        
                         if (reversed) {
                             y1 = 2 * centerY - y1;
                             y3 = 2 * centerY - y3;
@@ -185,31 +183,31 @@
                             path.push(x4, y5, x3, y5);
                         }
                         path.push(x3, y3, 'Z');
-
+                        
                         // prepare for using shared dr
                         point.shapeType = 'path';
                         point.shapeArgs = {
                             d: path
                         };
-
-
+                        
+                        
                         // for tooltips and data labels
                         point.percentage = fraction * 100;
                         point.plotX = centerX;
                         point.plotY = (y1 + (y5 || y3)) / 2;
-
+                        
                         // Placement of tooltips and data labels
                         point.tooltipPos = [
                             centerX,
                             point.plotY
                         ];
-
+                        
                         // Slice is a noop on funnel points
                         point.slice = noop;
-
+                        
                         // Mimicking pie data label placement logic
                         point.half = half;
-
+                        
                         if (!ignoreHiddenPoint || point.visible !== false) {
                             cumulative += fraction;
                         }
@@ -222,20 +220,20 @@
                  * @param {Number} brightness The brightness relative to the color
                  */
                 drawPoints: seriesTypes.column.prototype.drawPoints,
-
+                
                 /**
                  * Funnel items don't have angles (#2289)
                  */
-                sortByAngle: function(points) {
-                    points.sort(function(a, b) {
+                sortByAngle: function (points) {
+                    points.sort(function (a, b) {
                         return a.plotY - b.plotY;
                     });
                 },
-
+                
                 /**
                  * Extend the pie data label method
                  */
-                drawDataLabels: function() {
+                drawDataLabels: function () {
                     var data = this.data,
                         labelDistance = this.options.dataLabels.distance,
                         leftSide,
@@ -244,12 +242,12 @@
                         i = data.length,
                         x,
                         y;
-
+                    
                     // In the original pie label anticollision logic, the slots are distributed
                     // from one labelDistance above to one labelDistance below the pie. In funnels
                     // we don't want this.
                     this.center[2] -= 2 * labelDistance;
-
+                    
                     // Set the label position array for each point.
                     while (i--) {
                         point = data[i];
@@ -257,7 +255,7 @@
                         sign = leftSide ? 1 : -1;
                         y = point.plotY;
                         x = this.getX(y, leftSide);
-
+                        
                         // set the anchor point for data labels
                         point.labelPos = [
                             0, // first break of connector
@@ -270,13 +268,13 @@
                             0 // center angle
                         ];
                     }
-
+                    
                     seriesTypes.pie.prototype.drawDataLabels.call(this);
                 }
-
+                
             });
-
-        /** 
+        
+        /**
          * Pyramid series type.
          * A pyramid series is a special type of funnel, without neck and reversed by default.
          */
@@ -285,6 +283,6 @@
             neckHeight: '0%',
             reversed: true
         });
-
+        
     }(Highcharts));
 }));

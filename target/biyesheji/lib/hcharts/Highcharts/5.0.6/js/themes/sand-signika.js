@@ -5,23 +5,23 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * (c) 2010-2016 Torstein Honsi
          *
          * License: www.highcharts.com/license
-         * 
+         *
          * Sand-Signika theme for Highcharts JS
          * @author Torstein Honsi
          */
-
+        
         'use strict';
         /* global document */
         // Load the fonts
@@ -30,14 +30,14 @@
             rel: 'stylesheet',
             type: 'text/css'
         }, null, document.getElementsByTagName('head')[0]);
-
+        
         // Add the background image to the container
-        Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function(proceed) {
+        Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
             proceed.call(this);
             this.container.style.background = 'url(http://www.highcharts.com/samples/graphics/sand.png)';
         });
-
-
+        
+        
         Highcharts.theme = {
             colors: ['#f45b5b', '#8085e9', '#8d4654', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
                 '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'
@@ -94,7 +94,7 @@
                     shadow: false
                 }
             },
-
+            
             // Highstock specific
             navigator: {
                 xAxis: {
@@ -116,14 +116,14 @@
             scrollbar: {
                 trackBorderColor: '#C0C0C8'
             },
-
+            
             // General
             background2: '#E0E0E8'
-
+            
         };
-
+        
         // Apply the theme
         Highcharts.setOptions(Highcharts.theme);
-
+        
     }(Highcharts));
 }));

@@ -21,7 +21,7 @@
                 <div class="breadcrumb-container">
                     <nav>
                         <ul>
-                            <li class="parent-page"><a href="/fore/foreIndex">Home</a></li>
+                            <li class="parent-page"><a href="/fore/foreIndex">首页</a></li>
                             <li class="parent-page"><a href="#">商品</a></li>
                             <li>详细信息</li>
                         </ul>
@@ -118,14 +118,14 @@
 
                     <p class="d-inline-block ml-10 review-link">
                         <a href="#">
-                            <c:if test="${rs==null}">(0 customer review)</c:if>
-                            <c:if test="${rs!=null}">(${rs} customer review)</c:if>
+                            <c:if test="${rs==null}">(0 顾客评价)</c:if>
+                            <c:if test="${rs!=null}">(${rs} 顾客评价)</c:if>
                         </a>
                     </p>
 
                     <h2 class="product-price mb-0">
-                        <span class="main-price discounted">$${product.price+15}</span>
-                        <span class="discounted-price"> $${product.price}</span>
+                        <span class="main-price discounted">￥${product.price+15}</span>
+                        <span class="discounted-price"> ￥${product.price}</span>
                     </h2>
 
                     <p class="product-description mb-20">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有食品已严格把关，无任何食品安全问题，价格公道，食品美味，
@@ -139,7 +139,7 @@
                             <input type="text" value="1" id="num">
                         </div>
                         <div class="add-to-cart-btn d-block">
-                            <a href="#" class="fl-btn" id="add_cart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="#" class="fl-btn" id="add_cart"><i class="fa fa-shopping-cart"></i> 加入购物车</a>
                         </div>
                     </div>
 

@@ -8,12 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="../../include/publicMeta.jsp"%>
-<%@include file="../../include/publicHeader.jsp"%>
-<%@include file="../../include/publicMenu.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
+<%@include file="../../include/publicHeader.jsp" %>
+<%@include file="../../include/publicMenu.jsp" %>
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 商品分类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span
+            class="c-gray en">&gt;</span> 商品分类管理 <a class="btn btn-success radius r"
+                                                    style="line-height:1.6em;margin-top:3px"
+                                                    href="javascript:location.replace(location.href);" title="刷新"><i
+            class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="Hui-article">
         <article class="cl pd-20">
 
@@ -21,7 +25,7 @@
                 <input type="text" class="input-text" style="width:150px" placeholder="输入分类名称" id="newCateName" name="">
                 <button class="btn btn-secondary radius" onclick="admin_category_add()">添加分类</button>
                 如果分类无法删除的话，是因为该分类下有商品
-                <span class="r">共有数据：<strong>${size}</strong> 条</span> </div>
+                <span class="r">共有数据：<strong>${size}</strong> 条</span></div>
             <table class="table table-border table-bordered table-bg">
                 <thead>
                 <tr>
@@ -40,8 +44,13 @@
                         <td><input type="checkbox" value="1" name=""></td>
                         <td>${category.id}</td>
                         <td>${category.name}</td>
-                        <td><a title="编辑" href="javascript:;" onclick="admin_category_edit('分类编辑','editCategory?id=${category.id}','1','','310')" class="ml-5" style="text-decoration:none">
-                            <i class="Hui-iconfont">&#xe6df;</i></a> <a  deleteLink="true" title="删除" href="/category/delCategory?id=${category.id}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                        <td><a title="编辑" href="javascript:;"
+                               onclick="admin_category_edit('分类编辑','editCategory?id=${category.id}','1','','310')"
+                               class="ml-5" style="text-decoration:none">
+                            <i class="Hui-iconfont">&#xe6df;</i></a> <a deleteLink="true" title="删除"
+                                                                        href="/category/delCategory?id=${category.id}"
+                                                                        class="ml-5" style="text-decoration:none"><i
+                                class="Hui-iconfont">&#xe6e2;</i></a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -50,16 +59,16 @@
     </div>
 </section>
 
-<%@include file="../../include/publicFooter.jsp"%>
+<%@include file="../../include/publicFooter.jsp" %>
 <script type="text/javascript">
 
-    $(function(){
-        $("a").click(function(){
+    $(function () {
+        $("a").click(function () {
             var deleteLink = $(this).attr("deleteLink");
             console.log(deleteLink);
-            if("true"==deleteLink){
+            if ("true" == deleteLink) {
                 var confirmDelete = confirm("确认要删除");
-                if(confirmDelete)
+                if (confirmDelete)
                     return true;
                 return false;
 
@@ -75,19 +84,20 @@
         h		弹出层高度（缺省调默认值）
     */
     /*管理员-权限-添加*/
-    function admin_category_add(){
-       var name = $("#newCateName").val();
-       $.get(
-           "addCategory",
-           {"name":name},
-           function (result) {
-               location.reload();
-           }
-       );
+    function admin_category_add() {
+        var name = $("#newCateName").val();
+        $.get(
+            "addCategory",
+            {"name": name},
+            function (result) {
+                location.reload();
+            }
+        );
     }
+
     /*管理员-权限-编辑*/
-    function admin_category_edit(title,url,id,w,h){
-        layer_show(title,url,w,h);
+    function admin_category_edit(title, url, id, w, h) {
+        layer_show(title, url, w, h);
     }
 
 </script>

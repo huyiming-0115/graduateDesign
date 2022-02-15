@@ -7,18 +7,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../../include/publicMeta.jsp"%>
-<%@include file="../../include/publicHeader.jsp"%>
-<%@include file="../../include/publicMenu.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
+<%@include file="../../include/publicHeader.jsp" %>
+<%@include file="../../include/publicMenu.jsp" %>
 
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span
+            class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r"
+                                                  style="line-height:1.6em;margin-top:3px"
+                                                  href="javascript:location.replace(location.href);" title="刷新"><i
+            class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="Hui-article">
         <article class="cl pd-20">
             <div class="cl pd-5 bg-1 bk-gray">
                 <span class="l">
-                    <a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','addRoleUI','800')">
+                    <a class="btn btn-primary radius" href="javascript:;"
+                       onclick="admin_role_add('添加角色','addRoleUI','800')">
                         <i class="Hui-iconfont">&#xe600;</i> 添加角色
                     </a>
                 </span>
@@ -52,10 +57,13 @@
                                 </c:forEach>
                             </td>
                             <td class="f-14">
-                                <a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','editRole?id=${role.id}','1')" style="text-decoration:none">
+                                <a title="编辑" href="javascript:;"
+                                   onclick="admin_role_edit('角色编辑','editRole?id=${role.id}','1')"
+                                   style="text-decoration:none">
                                     <i class="Hui-iconfont">&#xe6df;</i>
                                 </a>
-                                <a deleteLink="true" title="删除" href="/config/deleteRole?id=${role.id}" class="ml-5" style="text-decoration:none">
+                                <a deleteLink="true" title="删除" href="/config/deleteRole?id=${role.id}" class="ml-5"
+                                   style="text-decoration:none">
                                     <i class="Hui-iconfont">&#xe6e2;</i>
                                 </a>
                             </td>
@@ -66,35 +74,37 @@
             </div>
         </article>
         <article class="cl pd-20">
-            <%@include file="../adminPage.jsp"%>
+            <%@include file="../adminPage.jsp" %>
         </article>
     </div>
 </section>
 
-<%@include file="../../include/publicFooter.jsp"%>
+<%@include file="../../include/publicFooter.jsp" %>
 <script type="text/javascript">
 
     /*删除链接*/
-    $(function(){
-        $("a").click(function(){
+    $(function () {
+        $("a").click(function () {
             var deleteLink = $(this).attr("deleteLink");
             console.log(deleteLink);
-            if("true"==deleteLink){
+            if ("true" == deleteLink) {
                 var confirmDelete = confirm("确认要删除");
-                if(confirmDelete)
+                if (confirmDelete)
                     return true;
                 return false;
 
             }
         });
     })
+
     /*管理员-角色-添加*/
-    function admin_role_add(title,url,w,h){
-        layer_show(title,url,w,h);
+    function admin_role_add(title, url, w, h) {
+        layer_show(title, url, w, h);
     }
+
     /*管理员-角色-编辑*/
-    function admin_role_edit(title,url,id,w,h){
-        layer_show(title,url,w,h);
+    function admin_role_edit(title, url, id, w, h) {
+        layer_show(title, url, w, h);
     }
 
 </script>

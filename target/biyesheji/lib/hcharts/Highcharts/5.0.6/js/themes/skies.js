@@ -5,23 +5,23 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * (c) 2010-2016 Torstein Honsi
          *
          * License: www.highcharts.com/license
-         * 
+         *
          * Skies theme for Highcharts JS
          * @author Torstein Honsi
          */
-
+        
         'use strict';
         Highcharts.theme = {
             colors: ['#514F78', '#42A07B', '#9B5E4A', '#72727F', '#1F949A', '#82914E', '#86777F', '#42A07B'],
@@ -104,9 +104,9 @@
                 }
             }
         };
-
+        
         // Apply the theme
         Highcharts.setOptions(Highcharts.theme);
-
+        
     }(Highcharts));
 }));

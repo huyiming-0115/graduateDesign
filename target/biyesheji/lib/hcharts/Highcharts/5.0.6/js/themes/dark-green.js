@@ -5,23 +5,23 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * (c) 2010-2016 Torstein Honsi
          *
          * License: www.highcharts.com/license
-         * 
+         *
          * Dark blue theme for Highcharts JS
          * @author Torstein Honsi
          */
-
+        
         'use strict';
         Highcharts.theme = {
             colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
@@ -70,7 +70,7 @@
                         fontWeight: 'bold',
                         fontSize: '12px',
                         fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-
+                        
                     }
                 }
             },
@@ -150,8 +150,8 @@
                     color: '#CCC'
                 }
             },
-
-
+            
+            
             navigation: {
                 buttonOptions: {
                     symbolStroke: '#DDDDDD',
@@ -173,7 +173,7 @@
                     }
                 }
             },
-
+            
             // scroll charts
             rangeSelector: {
                 buttonTheme: {
@@ -241,7 +241,7 @@
                     color: 'silver'
                 }
             },
-
+            
             navigator: {
                 handles: {
                     backgroundColor: '#666',
@@ -254,7 +254,7 @@
                     lineColor: '#A6C7ED'
                 }
             },
-
+            
             scrollbar: {
                 barBackgroundColor: {
                     linearGradient: {
@@ -298,7 +298,7 @@
                 },
                 trackBorderColor: '#666'
             },
-
+            
             // special colors for some of the
             legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
             background2: 'rgb(35, 35, 70)',
@@ -306,9 +306,9 @@
             textColor: '#C0C0C0',
             maskColor: 'rgba(255,255,255,0.3)'
         };
-
+        
         // Apply the theme
         Highcharts.setOptions(Highcharts.theme);
-
+        
     }(Highcharts));
 }));

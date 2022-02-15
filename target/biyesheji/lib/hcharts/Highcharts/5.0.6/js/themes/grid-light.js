@@ -5,23 +5,23 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * (c) 2010-2016 Torstein Honsi
          *
          * License: www.highcharts.com/license
-         * 
+         *
          * Grid-light theme for Highcharts JS
          * @author Torstein Honsi
          */
-
+        
         'use strict';
         /* global document */
         // Load the fonts
@@ -30,7 +30,7 @@
             rel: 'stylesheet',
             type: 'text/css'
         }, null, document.getElementsByTagName('head')[0]);
-
+        
         Highcharts.theme = {
             colors: ['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
                 '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'
@@ -85,15 +85,15 @@
                     lineColor: '#404048'
                 }
             },
-
-
+            
+            
             // General
             background2: '#F0F0EA'
-
+            
         };
-
+        
         // Apply the theme
         Highcharts.setOptions(Highcharts.theme);
-
+        
     }(Highcharts));
 }));

@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ include file="../../foreinclude/foreHander.jsp"%>
+<%@ include file="../../foreinclude/foreHander.jsp" %>
 
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -22,8 +22,8 @@
                 <div class="breadcrumb-container">
                     <nav>
                         <ul>
-                            <li class="parent-page"><a href="index.html">Home</a></li>
-                            <li>Login</li>
+                            <li class="parent-page"><a href="index.html">首页</a></li>
+                            <li>登录</li>
                         </ul>
                     </nav>
                 </div>
@@ -34,10 +34,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            Login Register page content         =
+= Login Register page content =
 =============================================-->
 
 <div class="page-section mb-50">
@@ -58,7 +58,7 @@
                                 <span class="errorMessage">${msg}</span>
                             </div>
                         </div>
-                        <h4 class="login-title">Login</h4>
+                        <h4 class="login-title">登录</h4>
 
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
@@ -84,25 +84,25 @@
     </div>
 </div>
 
-<!--=====  End of Login Register page content  ======-->
+<!--===== End of Login Register page content ======-->
 <script src="${pageContext.request.contextPath}/js/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("div.loginErrorMessageDiv").hide();
         //验证不能为空
-        $("form.loginForm").submit(function(){
-            if(0==$("#name").val().length||0==$("#password").val().length){
+        $("form.loginForm").submit(function () {
+            if (0 == $("#name").val().length || 0 == $("#password").val().length) {
                 $("span.errorMessage").html("账号或密码不能为空");
                 $("div.loginErrorMessageDiv").show();
                 return false;
             }
             return true;
         });
-        if("${msg}"=="true"){
+        if ("${msg}" == "true") {
             $("span.errorMessage").html("账号或密码错误");
             $("div.loginErrorMessageDiv").show();
         }
     })
 </script>
 
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

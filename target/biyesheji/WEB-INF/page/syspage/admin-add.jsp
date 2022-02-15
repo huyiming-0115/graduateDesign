@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../../include/publicMeta.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
 
 <article class="cl pd-20">
     <form action="/config/addUser" method="post" class="form form-horizontal" id="form-admin-add" target="_parent">
@@ -20,7 +20,8 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+                <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password"
+                       name="password">
             </div>
         </div>
         <div class="row cl">
@@ -31,18 +32,20 @@
                         <option value="${role.id}">${role.name}</option>
                     </c:forEach>
 				</select>
-				</span> </div>
+				</span></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value="" placeholder="密码" id="address" name="address">
+                <input type="text" class="input-text" autocomplete="off" value="" placeholder="密码" id="address"
+                       name="address">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系方式：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value="" placeholder="密码" id="phone" name="phone">
+                <input type="text" class="input-text" autocomplete="off" value="" placeholder="密码" id="phone"
+                       name="phone">
             </div>
         </div>
         <div class="row cl">
@@ -52,10 +55,10 @@
         </div>
     </form>
 </article>
-<%@include file="../../include/publicFooter.jsp"%>
+<%@include file="../../include/publicFooter.jsp" %>
 
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
             radioClass: 'iradio-blue',
