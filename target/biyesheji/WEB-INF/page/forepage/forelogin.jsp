@@ -22,8 +22,8 @@
                 <div class="breadcrumb-container">
                     <nav>
                         <ul>
-                            <li class="parent-page"><a href="index.html">Home</a></li>
-                            <li>Login</li>
+                            <li class="parent-page"><a href="index.html">首页</a></li>
+                            <li>登录</li>
                         </ul>
                     </nav>
                 </div>
@@ -58,7 +58,7 @@
                                 <span class="errorMessage">${msg}</span>
                             </div>
                         </div>
-                        <h4 class="login-title">Login</h4>
+                        <h4 class="login-title">登录</h4>
 
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
