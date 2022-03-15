@@ -21,7 +21,7 @@
                 <div class="breadcrumb-container">
                     <nav>
                         <ul>
-                            <li class="parent-page"><a href="/fore/foreIndex">Home</a></li>
+                            <li class="parent-page"><a href="/fore/foreIndex"></a></li>
                             <li class="parent-page"><a href="#">商品</a></li>
                             <li>详细信息</li>
                         </ul>

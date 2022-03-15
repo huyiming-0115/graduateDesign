@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -32,10 +32,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            shop page content         =
+= shop page content =
 =============================================-->
 
 <div class="shop-page-content mb-50">
@@ -52,7 +52,7 @@
                             <!--=======  view mode  =======-->
                             <div class="view-mode-icons mb-xs-10">
                                 <a href="#" data-target="grid"><i class="icon ion-md-apps"></i></a>
-                                <a class="active"  href="#" data-target="list"><i class="icon ion-ios-list"></i></a>
+                                <a class="active" href="#" data-target="list"><i class="icon ion-ios-list"></i></a>
                             </div>
                             <!--=======  End of view mode  =======-->
 
@@ -84,16 +84,18 @@
                             <div class="fl-product shop-grid-view-product">
                                 <div class="image">
                                     <a href="foreDetailUI?id=${p.id}">
-                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="">
-                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="">
                                     </a>
                                     <!-- wishlist icon -->
                                     <span class="wishlist-icon">
-                                            <a href="#" ><i class="icon ion-md-heart-empty"></i></a>
+                                            <a href="#"><i class="icon ion-md-heart-empty"></i></a>
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <h2 class="product-title"> <a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
+                                    <h2 class="product-title"><a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
                                     <div class="rating">
                                         <i class="fa fa-star active"></i>
                                         <i class="fa fa-star active"></i>
@@ -118,12 +120,14 @@
                             <div class="fl-product shop-list-view-product">
                                 <div class="image">
                                     <a href="foreDetailUI?id=${p.id}">
-                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="" width="50px" height="50px">
-                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="" width="50px" height="50px">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="" width="50px" height="50px">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="" width="50px" height="50px">
                                     </a>
                                 </div>
                                 <div class="content" style="padding-top: 55px">
-                                    <h2 class="product-title"> <a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
+                                    <h2 class="product-title"><a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
                                     <div class="rating">
                                         <i class="fa fa-star active"></i>
                                         <i class="fa fa-star active"></i>
@@ -153,5 +157,5 @@
     </div>
 </div>
 
-<!--=====  End of shop page content  ======-->
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<!--===== End of shop page content ======-->
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

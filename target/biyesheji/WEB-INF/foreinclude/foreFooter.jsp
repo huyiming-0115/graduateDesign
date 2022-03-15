@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--=============================================
-=            footer         =
+= footer =
 =============================================-->
 
 <div class="footer-container">
@@ -22,7 +22,8 @@
                     <div class="address-block">
                         <div class="image">
                             <a href="/fore/foreIndex">
-                                <img src="${pageContext.request.contextPath}/assets/images/logo.png" class="img-fluid" alt="">
+                                <img src="${pageContext.request.contextPath}/assets/images/logo.png" class="img-fluid"
+                                     alt="">
                             </a>
                         </div>
 
@@ -37,10 +38,14 @@
 
                         <div class="social-links">
                             <ul>
-                                <li><a href="#" class="twitter"  data-tooltip="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="facebook"  data-tooltip="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="behance" data-tooltip="Behance"><i class="fa fa-behance"></i></a></li>
-                                <li><a href="#" class="pinterest" data-tooltip="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#" class="twitter" data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#" class="facebook" data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#" class="behance" data-tooltip="Behance"><i class="fa fa-behance"></i></a>
+                                </li>
+                                <li><a href="#" class="pinterest" data-tooltip="Pinterest"><i
+                                        class="fa fa-pinterest"></i></a></li>
                                 <li><a href="#" class="rss" data-tooltip="RSS"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
@@ -133,7 +138,8 @@
                     <!--=======  payment logo  =======-->
 
                     <div class="payment-logo">
-                        <img src="${pageContext.request.contextPath}/assets/images/payment.png" class="img-fluid" alt="">
+                        <img src="${pageContext.request.contextPath}/assets/images/payment.png" class="img-fluid"
+                             alt="">
                     </div>
 
                     <!--=======  End of payment logo  =======-->
@@ -145,10 +151,10 @@
     <!--=======  End of footer copyright  =======-->
 </div>
 
-<!--=====  End of footer  ======-->
+<!--===== End of footer ======-->
 
 <!--=============================================
-=            search overlay         =
+= search overlay =
 =============================================-->
 
 <div class="search-overlay" id="search-overlay">
@@ -159,9 +165,9 @@
     </div>
 </div>
 
-<!--=====  End of search overlay  ======-->
+<!--===== End of search overlay ======-->
 
-<!-- scroll to top  -->
+<!-- scroll to top -->
 <a href="#" class="scroll-top"></a>
 <!-- end of scroll to top -->
 

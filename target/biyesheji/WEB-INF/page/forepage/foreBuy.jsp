@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -32,10 +32,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            Cart page content         =
+= Cart page content =
 =============================================-->
 
 
@@ -61,17 +61,29 @@
                             <c:forEach items="${ois}" var="orderItem">
                                 <tr>
                                     <td class="pro-thumbnail">
-                                        <a href="single-product.html"><img src="${pageContext.request.contextPath}/${orderItem.product.imageurl}" class="img-fluid" alt="Product"></a>
+                                        <a href="single-product.html"><img
+                                                src="${pageContext.request.contextPath}/${orderItem.product.imageurl}"
+                                                class="img-fluid" alt="Product"></a>
                                     </td>
-                                    <td class="pro-title"><a href="single-product.html">${orderItem.product.name}</a></td>
-                                    <c:if test="${cst.status==0}"><td class="pro-price"><span>$${orderItem.product.price}</span></td></c:if>
-                                    <c:if test="${cst.status==1}"><td class="pro-price"><span>$${orderItem.product.price*0.8}</span></td></c:if>
-                                    <td class="pro-quantity"><div class="pro-qty"><span>${orderItem.number}</span></div></td>
+                                    <td class="pro-title"><a href="single-product.html">${orderItem.product.name}</a>
+                                    </td>
                                     <c:if test="${cst.status==0}">
-                                        <td class="pro-subtotal"><span id="xiaoji1">$${orderItem.number*orderItem.product.price}</span></td>
+                                        <td class="pro-price"><span>$${orderItem.product.price}</span></td>
                                     </c:if>
                                     <c:if test="${cst.status==1}">
-                                        <td class="pro-subtotal"><span id="xiaoji08">$${orderItem.number*orderItem.product.price*0.8}</span></td>
+                                        <td class="pro-price"><span>$${orderItem.product.price*0.8}</span></td>
+                                    </c:if>
+                                    <td class="pro-quantity">
+                                        <div class="pro-qty"><span>${orderItem.number}</span></div>
+                                    </td>
+                                    <c:if test="${cst.status==0}">
+                                        <td class="pro-subtotal"><span
+                                                id="xiaoji1">$${orderItem.number*orderItem.product.price}</span></td>
+                                    </c:if>
+                                    <c:if test="${cst.status==1}">
+                                        <td class="pro-subtotal"><span
+                                                id="xiaoji08">$${orderItem.number*orderItem.product.price*0.8}</span>
+                                        </td>
                                     </c:if>
                                 </tr>
                             </c:forEach>
@@ -106,16 +118,19 @@
                                                     </div>
                                                     <div class="col-md-6 col-12 mb-20">
                                                         <label>手机号</label>
-                                                        <input type="text" name="phone" id="phone" placeholder="Phone number">
+                                                        <input type="text" name="phone" id="phone"
+                                                               placeholder="Phone number">
                                                     </div>
                                                     <div class="col-md-6 col-12 mb-20">
                                                         <label>邮箱</label>
-                                                        <input type="email" name="email" id="email" placeholder="Email Address">
+                                                        <input type="email" name="email" id="email"
+                                                               placeholder="Email Address">
                                                     </div>
 
                                                     <div class="col-md-12 col-12 mb-20">
                                                         <label>地址</label>
-                                                        <input type="text" name="address" id="address" placeholder="Address">
+                                                        <input type="text" name="address" id="address"
+                                                               placeholder="Address">
                                                     </div>
 
                                                     <div class="col-12 mb-20">
@@ -164,37 +179,49 @@
                                                     <div class="checkout-payment-method">
 
                                                         <div class="single-method">
-                                                            <input type="radio" id="payment_check" onclick="payedFunc(this);" name="payment-method" value="check">
+                                                            <input type="radio" id="payment_check"
+                                                                   onclick="payedFunc(this);" name="payment-method"
+                                                                   value="check">
                                                             <label for="payment_check">支票支付</label>
-                                                            <p data-method="check">请在商店街，商店城，商店状态，商店邮政编码，商店国家/地区发送支票商店名称。</p>
+                                                            <p data-method="check">
+                                                                请在商店街，商店城，商店状态，商店邮政编码，商店国家/地区发送支票商店名称。</p>
                                                         </div>
 
                                                         <div class="single-method">
-                                                            <input type="radio" id="payment_bank" onclick="payedFunc(this);" name="payment-method" value="bank">
+                                                            <input type="radio" id="payment_bank"
+                                                                   onclick="payedFunc(this);" name="payment-method"
+                                                                   value="bank">
                                                             <label for="payment_bank">直接银行转账</label>
                                                             <p data-method="bank">请填写银行卡账号</p>
                                                         </div>
 
                                                         <div class="single-method">
-                                                            <input type="radio" id="payment_cash" onclick="payedFunc(this);" name="payment-method" value="cash">
+                                                            <input type="radio" id="payment_cash"
+                                                                   onclick="payedFunc(this);" name="payment-method"
+                                                                   value="cash">
                                                             <label for="payment_cash">货到付款</label>
                                                             <p data-method="cash">订单准备就绪，即时配送</p>
                                                         </div>
 
                                                         <div class="single-method">
-                                                            <input type="radio" id="payment_paypal" onclick="payedFunc(this);" name="payment-method" value="paypal">
+                                                            <input type="radio" id="payment_paypal"
+                                                                   onclick="payedFunc(this);" name="payment-method"
+                                                                   value="paypal">
                                                             <label for="payment_paypal">支付宝</label>
                                                             <p data-method="paypal">扫描支付宝二维码支付</p>
                                                         </div>
 
                                                         <div class="single-method">
-                                                            <input type="radio" id="payment_payoneer" onclick="payedFunc(this);" name="payment-method" value="payoneer">
+                                                            <input type="radio" id="payment_payoneer"
+                                                                   onclick="payedFunc(this);" name="payment-method"
+                                                                   value="payoneer">
                                                             <label for="payment_payoneer">微信</label>
                                                             <p data-method="payoneer">扫描微信二维码支付</p>
                                                         </div>
 
                                                         <div class="single-method">
-                                                            <input type="checkbox" id="accept_terms" onclick="yuedu(this)">
+                                                            <input type="checkbox" id="accept_terms"
+                                                                   onclick="yuedu(this)">
                                                             <label for="accept_terms">我已阅读并接受条款和条件</label>
                                                         </div>
 
@@ -222,54 +249,57 @@
         </div>
     </div>
 </div>
-<!--=====  End of Cart page content  ======-->
+<!--===== End of Cart page content ======-->
 <script src="${pageContext.request.contextPath}/js/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
     var readed = false;//是否点击我已阅读
     var payedFun = false; //是否选中支付方式
-    function yuedu(object){
-        if(object.checked==1){
+    function yuedu(object) {
+        if (object.checked == 1) {
             readed = true;
-        }else {
+        } else {
             readed = false;
         }
     }
+
     function payedFunc(object) {
-        if(object.checked==1){
+        if (object.checked == 1) {
             payedFun = true;
-        }else {
+        } else {
             payedFun = false;
         }
     }
+
     function createOrder() {
         var name = $("#name").val();
         var email = $("#email").val();
         var address = $("#address").val();
         var phone = $("#phone").val();
-        if(name==""||email==""||address==""||phone==""){
+        if (name == "" || email == "" || address == "" || phone == "") {
             alert("收货信息不能为空！");
             return;
         }
-        if(!readed){
+        if (!readed) {
             alert("请点击我已阅读并接受条款和条件！");
             return;
         }
-        if(!payedFun){
+        if (!payedFun) {
             alert("请选择一种支付方式！");
             return false;
         }
 
-        var cstAddress = "姓名："+name+",邮箱："+email+",配送地址："+address+",手机号："+phone;
-        window.location.href="/fore/foreCreateOrder?address="+cstAddress;
+        var cstAddress = "姓名：" + name + ",邮箱：" + email + ",配送地址：" + address + ",手机号：" + phone;
+        window.location.href = "/fore/foreCreateOrder?address=" + cstAddress;
     }
+
     //鼠标移入事件
     $("#order_btn").mouseenter(function () {
-        this.style.color="#ff1059";
+        this.style.color = "#ff1059";
     });
     $("#order_btn").mouseout(function () {
-        this.style.color="white";
+        this.style.color = "white";
     })
 
 </script>
 
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

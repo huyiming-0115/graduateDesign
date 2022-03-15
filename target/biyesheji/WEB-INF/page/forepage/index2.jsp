@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ include file="../../foreinclude/foreHander.jsp"%>
-<!--======  hero slider ========-->
+<%@ include file="../../foreinclude/foreHander.jsp" %>
+<!--====== hero slider ========-->
 <div class="hero-area home-four mb-30">
     <!--=======  slider container  =======-->
     <div class="slider-container">
@@ -94,10 +94,10 @@
     <!--=======  End of slider container  =======-->
 </div>
 
-<!--=====  End of hero slider  ======-->
+<!--===== End of hero slider ======-->
 
 <!--=============================================
-=            slider with banner and sidebar three         =
+= slider with banner and sidebar three =
 =============================================-->
 
 <c:forEach items="${categories}" var="category" varStatus="vs">
@@ -123,21 +123,24 @@
                             <div class="banner-text h-100"></div>
                         </div>
                         <!--=======  End of banner  =======-->
-                            <div class="fl-slider tab-product-slider">
-                                <c:forEach items="${category.products}" var="product">
+                        <div class="fl-slider tab-product-slider">
+                            <c:forEach items="${category.products}" var="product">
                                 <div class="fl-product">
                                     <div class="image">
                                         <a href="foreDetailUI?id=${product.id}">
-                                            <img src="${pageContext.request.contextPath}/${product.imageurl}" class="img-fluid" alt="">
-                                            <img src="${pageContext.request.contextPath}/${product.imageurl}" class="img-fluid" alt="">
+                                            <img src="${pageContext.request.contextPath}/${product.imageurl}"
+                                                 class="img-fluid" alt="">
+                                            <img src="${pageContext.request.contextPath}/${product.imageurl}"
+                                                 class="img-fluid" alt="">
                                         </a>
                                         <!-- wishlist icon -->
                                         <span class="wishlist-icon">
-												<a href="#" ><i class="icon ion-md-heart-empty"></i></a>
+												<a href="#"><i class="icon ion-md-heart-empty"></i></a>
 										 </span>
                                     </div>
                                     <div class="content">
-                                        <h2 class="product-title"> <a href="foreDetailUI?id=${product.id}">${product.name}</a></h2>
+                                        <h2 class="product-title"><a
+                                                href="foreDetailUI?id=${product.id}">${product.name}</a></h2>
                                         <div class="rating">
                                             <i class="fa fa-star active"></i>
                                             <i class="fa fa-star active"></i>
@@ -147,18 +150,23 @@
                                         </div>
                                         <p class="product-price">
                                             <span class="main-price discounted">
-                                                $<fmt:formatNumber type="number" value="${product.price+15.1}" pattern="0.00" maxFractionDigits="2"/>
+                                                $<fmt:formatNumber type="number" value="${product.price+15.1}"
+                                                                   pattern="0.00" maxFractionDigits="2"/>
                                             </span>
                                             <span class="discounted-price">
-                                                $<fmt:formatNumber type="number" value="${product.price}" pattern="0.00" maxFractionDigits="2"/>
+                                                $<fmt:formatNumber type="number" value="${product.price}" pattern="0.00"
+                                                                   maxFractionDigits="2"/>
                                             </span>
                                         </p>
 
                                         <div class="hover-icons">
                                             <ul>
-                                                <li><a href="#"  data-tooltip="立即购买" id="nowPayment" onclick="buyNow(${product.id},${product.price});"><i class="icon ion-md-options"></i></a></li>
+                                                <li><a href="#" data-tooltip="立即购买" id="nowPayment"
+                                                       onclick="buyNow(${product.id},${product.price});"><i
+                                                        class="icon ion-md-options"></i></a></li>
                                                 <li>
-                                                    <a href="#" data-toggle = "modal" data-target="#quick-view-modal-container" data-tooltip="添加到购物车"
+                                                    <a href="#" data-toggle="modal"
+                                                       data-target="#quick-view-modal-container" data-tooltip="添加到购物车"
                                                        onclick="Values('${product.id}','${product.name}','${product.price}','${product.imageurl}','${product.miaoshu}');">
                                                         <i class="icon ion-md-cart"></i>
                                                     </a>
@@ -167,9 +175,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                </c:forEach>
-                                <!--=======  End of single product  =======-->
-                            </div>
+                            </c:forEach>
+                            <!--=======  End of single product  =======-->
+                        </div>
 
                         <!--=======  End of banner slider  =======-->
                     </div>
@@ -180,10 +188,10 @@
     </div>
 </c:forEach>
 
-<!--=====  End of slider with banner and sidebar three  ======-->
+<!--===== End of slider with banner and sidebar three ======-->
 
 <!--=============================================
-=            brand logo slider         =
+= brand logo slider =
 =============================================-->
 
 <div class="brand-logo-slider home-four-brand-slider mb-50">
@@ -197,7 +205,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/01.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/01.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -207,7 +216,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/02.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/02.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -217,7 +227,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/03.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/03.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -226,7 +237,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/04.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/04.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -235,7 +247,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/01.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/01.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -244,7 +257,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/03.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/03.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -253,7 +267,8 @@
 
                     <div class="single-brand">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/images/brands/02.png" class="img-fluid" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/images/brands/02.png" class="img-fluid"
+                                 alt="">
                         </a>
                     </div>
 
@@ -266,20 +281,21 @@
     </div>
 </div>
 
-<!--=====  End of brand logo slider  ======-->
+<!--===== End of brand logo slider ======-->
 
 <!--=============================================
-=            instagram image slider         =
+= instagram image slider =
 =============================================-->
 
 
-<!--=====  End of instagram image slider  ======-->
+<!--===== End of instagram image slider ======-->
 
 <!--=============================================
-=            Quick view modal         =
+= Quick view modal =
 =============================================-->
 
-<div class="modal fade quick-view-modal-container" aria-hidden="true" id="quick-view-modal-container" tabindex="-1" role="dialog">
+<div class="modal fade quick-view-modal-container" aria-hidden="true" id="quick-view-modal-container" tabindex="-1"
+     role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <input type="hidden" id="onproduct" name="onproduct" value="">
@@ -294,11 +310,14 @@
                         <!-- single product tabstyle one image gallery -->
                         <div class="product-image-slider fl-product-image-slider fl3-product-image-slider quickview-product-image-slider">
                             <!--product large image start -->
-                            <div class="tab-content product-large-image-list fl-product-large-image-list fl3-product-large-image-list quickview-product-large-image-list" id="myTabContent2">
-                                <div class="tab-pane fade show active" id="single-slide-1-q" role="tabpanel" aria-labelledby="single-slide-tab-1-q">
+                            <div class="tab-content product-large-image-list fl-product-large-image-list fl3-product-large-image-list quickview-product-large-image-list"
+                                 id="myTabContent2">
+                                <div class="tab-pane fade show active" id="single-slide-1-q" role="tabpanel"
+                                     aria-labelledby="single-slide-tab-1-q">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img id="proImg" src="${pageContext.request.contextPath}" class="img-fluid" alt="">
+                                        <img id="proImg" src="${pageContext.request.contextPath}" class="img-fluid"
+                                             alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
@@ -325,7 +344,8 @@
                                     <input type="text" value="1" id="nums">
                                 </div>
                                 <div class="add-to-cart-btn">
-                                    <a href="#" id="add_cart" class="fl-btn"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                    <a href="#" id="add_cart" class="fl-btn"><i class="fa fa-shopping-cart"></i> Add to
+                                        Cart</a>
                                 </div>
                             </div>
 
@@ -349,59 +369,60 @@
     </div>
 </div>
 
-<!--=====  End of Quick view modal  ======-->
+<!--===== End of Quick view modal ======-->
 
 
 <script src="${pageContext.request.contextPath}/assets/js/vendor/jquery.min.js"></script>
 <script type="text/javascript">
     var this_pro_price;
     var this_pro_id;
+
     //点击立即购买执行渲染参数
-    function Values(id,name,price,imageUrl,miaoshu) {
+    function Values(id, name, price, imageUrl, miaoshu) {
         this_pro_price = price;
         this_pro_id = id;
         $("#proName").html(name);
         $("#miaoshu").html(miaoshu);
-        $("#proPrice").html('$'+price);
-        var proPrice1 = price +15;
-        $("#proPrice1").html('$'+proPrice1);
-        $("#proImg").attr("src",'/'+imageUrl);
+        $("#proPrice").html('$' + price);
+        var proPrice1 = price + 15;
+        $("#proPrice1").html('$' + proPrice1);
+        $("#proImg").attr("src", '/' + imageUrl);
     }
 
     //立即购买
-    function buyNow(id,price){
+    function buyNow(id, price) {
         //ajax判断是否登陆
         $.get(
             "foreIsLogin",
-            function(result) {
-                if (result=="true"){ //首页立即购买默认只买一件
-                    var totalPrice = 1*price;
-                    location.href= "forebuyone?pid="+id+"&number=1"+"&totalPrice="+totalPrice;
-                }else {  //未登录
+            function (result) {
+                if (result == "true") { //首页立即购买默认只买一件
+                    var totalPrice = 1 * price;
+                    location.href = "forebuyone?pid=" + id + "&number=1" + "&totalPrice=" + totalPrice;
+                } else {  //未登录
                     alert("请先登陆!")
                 }
             }
         );//登陆结束
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         //添加到购物车
         $("#add_cart").click(function () {
             var number = $("#nums").val();
-            var totalPrice = number*this_pro_price;
+            var totalPrice = number * this_pro_price;
             $.get(
                 "foreAddCart",
-                {pid:this_pro_id,number:number,totalPrice:totalPrice},
-                function(data){
-                    if(data=="success"){
+                {pid: this_pro_id, number: number, totalPrice: totalPrice},
+                function (data) {
+                    if (data == "success") {
                         alert("添加购物车成功");
-                    }else{
+                    } else {
                         alert("请先登陆！！！");
                     }
                 }
             );//添加购物车结束
-          });
+        });
     });
 </script>
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<%@ include file="../../foreinclude/foreFooter.jsp" %>
 

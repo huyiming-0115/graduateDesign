@@ -5,23 +5,23 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(Highcharts) {
+}(function (Highcharts) {
+    (function (Highcharts) {
         /**
          * (c) 2010-2016 Torstein Honsi
          *
          * License: www.highcharts.com/license
-         * 
+         *
          * Dark theme for Highcharts JS
          * @author Torstein Honsi
          */
-
+        
         'use strict';
         /* global document */
         // Load the fonts
@@ -30,7 +30,7 @@
             rel: 'stylesheet',
             type: 'text/css'
         }, null, document.getElementsByTagName('head')[0]);
-
+        
         Highcharts.theme = {
             colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
                 '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'
@@ -79,7 +79,7 @@
                 title: {
                     style: {
                         color: '#A0A0A3'
-
+                        
                     }
                 }
             },
@@ -146,7 +146,7 @@
                     color: '#707073'
                 }
             },
-
+            
             drilldown: {
                 activeAxisLabelStyle: {
                     color: '#F0F0F3'
@@ -155,7 +155,7 @@
                     color: '#F0F0F3'
                 }
             },
-
+            
             navigation: {
                 buttonOptions: {
                     symbolStroke: '#DDDDDD',
@@ -164,7 +164,7 @@
                     }
                 }
             },
-
+            
             // scroll charts
             rangeSelector: {
                 buttonTheme: {
@@ -199,7 +199,7 @@
                     color: 'silver'
                 }
             },
-
+            
             navigator: {
                 handles: {
                     backgroundColor: '#666',
@@ -215,7 +215,7 @@
                     gridLineColor: '#505053'
                 }
             },
-
+            
             scrollbar: {
                 barBackgroundColor: '#808083',
                 barBorderColor: '#808083',
@@ -226,7 +226,7 @@
                 trackBackgroundColor: '#404043',
                 trackBorderColor: '#404043'
             },
-
+            
             // special colors for some of the
             legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
             background2: '#505053',
@@ -235,9 +235,9 @@
             contrastTextColor: '#F0F0F3',
             maskColor: 'rgba(255,255,255,0.3)'
         };
-
+        
         // Apply the theme
         Highcharts.setOptions(Highcharts.theme);
-
+        
     }(Highcharts));
 }));

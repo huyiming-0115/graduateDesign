@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="../../include/publicMeta.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
 
 <section class="Hui-article-box">
     <div class="">
@@ -42,8 +42,6 @@
         </article>
     </div>
 </section>
-
-
 
 
 </body>

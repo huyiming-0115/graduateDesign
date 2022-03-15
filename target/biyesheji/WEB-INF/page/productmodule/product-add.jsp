@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="../../include/publicMeta.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
 
 <article class="cl pd-20">
-    <form action="/product/addProduct" method="post" enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add"  target="_parent">
+    <form action="/product/addProduct" method="post" enctype="multipart/form-data" class="form form-horizontal"
+          id="form-admin-add" target="_parent">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -21,7 +22,8 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品单价：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="price" name="price">
+                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="price"
+                       name="price">
             </div>
         </div>
         <div class="row cl">
@@ -33,21 +35,23 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>销量：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="number" name="number">
+                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="number"
+                       name="number">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>描述：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="miaoshu" name="miaoshu">
+                <input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="miaoshu"
+                       name="miaoshu">
             </div>
         </div>
 
-       <div class="row cl">
-           <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span> 上传图片：</label>
-           <div class="formControls col-xs-8 col-sm-9">
-               <input type="file" name="image" accept="image/*"/>
-           </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span> 上传图片：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="file" name="image" accept="image/*"/>
+            </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">分类：</label>
@@ -80,10 +84,10 @@
         </div>
     </form>
 </article>
-<%@include file="../../include/publicFooter.jsp"%>
+<%@include file="../../include/publicFooter.jsp" %>
 
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
             radioClass: 'iradio-blue',

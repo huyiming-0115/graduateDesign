@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -32,10 +32,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            FAQ page content         =
+= FAQ page content =
 =============================================-->
 
 <div class="page-section mb-50">
@@ -162,7 +162,7 @@
 </div>
 
 
-<!--=====  End of FAQ page content  ======-->
+<!--===== End of FAQ page content ======-->
 
-<!--=====  End of FAQ page content  ======-->
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<!--===== End of FAQ page content ======-->
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

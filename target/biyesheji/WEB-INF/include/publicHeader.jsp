@@ -21,18 +21,21 @@
                     <li>
                         <c:if test="${subject.hasRole('admin')}">
                             超级管理员
-                         </c:if>
+                        </c:if>
                         <c:if test="${!subject.hasRole('admin')}">
                             商家管理员
                         </c:if>
                     </li>
-                    <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">你好，${subject.principal} <i class="Hui-iconfont">&#xe6d5;</i></a>
+                    <li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">你好，${subject.principal} <i
+                            class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="${pageContext.request.contextPath}/islogout">退出</a></li>
                         </ul>
                     </li>
 
-                    <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+                    <li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" class="dropDown_A"
+                                                                               title="换肤"><i class="Hui-iconfont"
+                                                                                             style="font-size:18px">&#xe62a;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
                             <li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>

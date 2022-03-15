@@ -8,16 +8,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="../../include/publicMeta.jsp"%>
-<%@include file="../../include/publicHeader.jsp"%>
-<%@include file="../../include/publicMenu.jsp"%>
+<%@include file="../../include/publicMeta.jsp" %>
+<%@include file="../../include/publicHeader.jsp" %>
+<%@include file="../../include/publicMenu.jsp" %>
 
 <section class="Hui-article-box">
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
         <span class="c-gray en">&gt;</span>
         用户管理
         <span class="c-gray en">&gt;</span>
-        用户列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+        用户列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+                href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+    </nav>
     <div class="Hui-article">
         <article class="cl pd-20">
             <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -69,12 +71,12 @@
             </table>
         </article>
         <article class="cl pd-20">
-            <%@include file="../adminPage.jsp"%>
+            <%@include file="../adminPage.jsp" %>
         </article>
     </div>
 </section>
 
-<%@include file="../../include/publicFooter.jsp"%>
+<%@include file="../../include/publicFooter.jsp" %>
 
 <script type="text/javascript">
     /*
@@ -85,13 +87,13 @@
        w		弹出层宽度（缺省调默认值）
        h		弹出层高度（缺省调默认值）
    */
-    $(function(){
-        $("a").click(function(){
+    $(function () {
+        $("a").click(function () {
             var deleteLink = $(this).attr("deleteLink");
             console.log(deleteLink);
-            if("true"==deleteLink){
+            if ("true" == deleteLink) {
                 var confirmDelete = confirm("确认要删除");
-                if(confirmDelete)
+                if (confirmDelete)
                     return true;
                 return false;
 
@@ -100,18 +102,18 @@
     })
 
     /*自定义*/
-    function shezhihuiyuan(obj,id,status) {
-        if(status==1){
+    function shezhihuiyuan(obj, id, status) {
+        if (status == 1) {
             layer.confirm("该用户已经是会员等级了!");
             return false;
         }
-        layer.confirm('确认设为会员吗？',function(){
+        layer.confirm('确认设为会员吗？', function () {
             $.get(
                 "shezhihuiyuan",
-                {"id":id},
+                {"id": id},
                 function (result) {
-                    if("success"==result){
-                        layer.msg('已设为会员!', {icon: 6,time:3000});
+                    if ("success" == result) {
+                        layer.msg('已设为会员!', {icon: 6, time: 3000});
                         location.reload();
                     }
                 }

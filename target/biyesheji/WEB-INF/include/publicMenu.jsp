@@ -59,7 +59,8 @@
         </dl>
         <c:if test="${subject.hasRole('admin')}">
             <dl id="menu-system">
-                <dt><i class="Hui-iconfont">&#xe62e;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dt><i class="Hui-iconfont">&#xe62e;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+                </dt>
                 <dd>
                     <ul>
                         <li><a href="/zixun/list" title="资讯列表">资讯列表</a></li>
@@ -69,5 +70,6 @@
         </c:if>
     </div>
 </aside>
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
+</div>
 <!--/_menu 作为公共模版分离出去-->

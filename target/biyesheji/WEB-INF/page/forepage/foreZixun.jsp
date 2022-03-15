@@ -6,11 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -34,10 +34,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            blog page content         =
+= blog page content =
 =============================================-->
 
 <div class="blog-page-content mb-50">
@@ -63,7 +63,9 @@
                         <blockquote>
                             <p>
                                 用户可发布自己的问题，管理员审核通过后进行显示
-                                <button style="float:right" class="btn btn-default"><a href="javascript:;" onclick="fabuzixun();">发布</a></button>
+                                <button style="float:right" class="btn btn-default"><a href="javascript:;"
+                                                                                       onclick="fabuzixun();">发布</a>
+                                </button>
                             </p>
 
                         </blockquote>
@@ -86,25 +88,26 @@
                     <div class="comment-container mb-40">
                         <!--=======  single comment  =======-->
                         <c:forEach items="${list}" var="z">
-                        <div class="single-comment">
-                            <!--
-                                <span class="reply-btn"><a href="#">Reply</a></span>
-                            -->
-                            <div class="image">
-                                <img src="assets/images/blog-image/comment-icon.png" alt="">
-                            </div>
-                            <div class="content">
-                                <h3 class="user">${z.customer.name} <span class="comment-time"><fmt:formatDate value="${z.fabudate}" pattern="yyyy年MM月dd日HH点mm分" /></span></h3>
-                                <p class="comment-text">${z.content}.</p>
-                            </div>
+                            <div class="single-comment">
+                                <!--
+                                    <span class="reply-btn"><a href="#">Reply</a></span>
+                                -->
+                                <div class="image">
+                                    <img src="assets/images/blog-image/comment-icon.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <h3 class="user">${z.customer.name} <span class="comment-time"><fmt:formatDate
+                                            value="${z.fabudate}" pattern="yyyy年MM月dd日HH点mm分"/></span></h3>
+                                    <p class="comment-text">${z.content}.</p>
+                                </div>
 
-                        </div>
+                            </div>
                         </c:forEach>
 
                         <!--=======  End of single comment  =======-->
                     </div>
                     <!--=======  End of comment container  =======-->
-                 <!--=======  End of comment form container  =======-->
+                    <!--=======  End of comment form container  =======-->
                 </div>
                 <!--=====  End of Comment section  ======-->
             </div>
@@ -112,9 +115,10 @@
     </div>
 </div>
 
-<!--=====  End of blog page content  ======-->
+<!--===== End of blog page content ======-->
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"  id="myModal" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myModalLabel"
+     aria-hidden="true" data-backdrop="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!--登陆框头部-->
@@ -132,7 +136,8 @@
                 <div class="form-group">
                     <label for="contents" class="col-sm-4 control-label">输入信息</label>
                     <div class="col-sm-12">
-                        <textarea class="form-control" name="content" id="contents" placeholder="Say you want to say..." required="required"></textarea>
+                        <textarea class="form-control" name="content" id="contents" placeholder="Say you want to say..."
+                                  required="required"></textarea>
                     </div>
                 </div>
                 <input type="hidden" name="cstid" value="${cst.id}"/>
@@ -140,7 +145,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-default"  id="modalFabu">发布</button>
+                        <button type="button" class="btn btn-default" id="modalFabu">发布</button>
                     </div>
                 </div>
                 <%--</form>--%>
@@ -151,17 +156,18 @@
 
 <script src="${pageContext.request.contextPath}/js/jquery/2.0.0/jquery.min.js"></script>
 <script>
-    function fabuzixun(){
+    function fabuzixun() {
         $('#myModal').modal('show');
     }
+
     $(function () {
         $("#modalFabu").click(function () {
             var content = $("#contents").val();
             $.get(
                 "foreZixunadd",
-                {"content":content},
+                {"content": content},
                 function (result) {
-                    if(result=="success"){
+                    if (result == "success") {
                         alert("已提交，请等待管理员审核！");
                         $('#myModal').modal('hide');
                     }
@@ -171,5 +177,5 @@
         });
     })
 </script>
-<!--====  End of My Account page content  ====-->
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<!--==== End of My Account page content ====-->
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

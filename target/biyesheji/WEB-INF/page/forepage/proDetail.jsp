@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -34,10 +34,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            single product content         =
+= single product content =
 =============================================-->
 
 <div class="single-product-content-area mb-50">
@@ -47,12 +47,16 @@
                 <!-- single product tabstyle one image gallery -->
                 <div class="product-image-slider fl-product-image-slider fl3-product-image-slider">
                     <!--product large image start -->
-                    <div class="tab-content product-large-image-list fl-product-large-image-list fl3-product-large-image-list" id="myTabContent">
-                        <div class="tab-pane fade show active" id="single-slide-1" role="tabpanel" aria-labelledby="single-slide-tab-1">
+                    <div class="tab-content product-large-image-list fl-product-large-image-list fl3-product-large-image-list"
+                         id="myTabContent">
+                        <div class="tab-pane fade show active" id="single-slide-1" role="tabpanel"
+                             aria-labelledby="single-slide-tab-1">
                             <!--Single Product Image Start-->
                             <div class="single-product-img img-full">
-                                <img src="${pageContext.request.contextPath}/${product.imageurl}" class="img-fluid" alt="">
-                                <a href="${pageContext.request.contextPath}/${product.imageurl}" class="big-image-popup"><i class="fa fa-search-plus"></i></a>
+                                <img src="${pageContext.request.contextPath}/${product.imageurl}" class="img-fluid"
+                                     alt="">
+                                <a href="${pageContext.request.contextPath}/${product.imageurl}"
+                                   class="big-image-popup"><i class="fa fa-search-plus"></i></a>
                             </div>
                             <!--Single Product Image End-->
                         </div>
@@ -64,27 +68,32 @@
                         <div class="nav small-image-slider fl3-small-image-slider" role="tablist">
                             <div class="single-small-image img-full">
                                 <a data-toggle="tab" id="single-slide-tab-1" href="javascript:;">
-                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/01.jpg" class="img-fluid" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/01.jpg"
+                                         class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="single-small-image img-full">
                                 <a data-toggle="tab" id="single-slide-tab-2" href="javascript:;">
-                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/02.jpg" class="img-fluid" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/02.jpg"
+                                         class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="single-small-image img-full">
                                 <a data-toggle="tab" id="single-slide-tab-3" href="javascript:;">
-                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/03.jpg" class="img-fluid" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/03.jpg"
+                                         class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="single-small-image img-full">
                                 <a data-toggle="tab" id="single-slide-tab-4" href="javascript:;">
-                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/04.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/04.jpg"
+                                         alt="">
                                 </a>
                             </div>
                             <div class="single-small-image img-full">
                                 <a data-toggle="tab" id="single-slide-tab-5" href="javascript:;">
-                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/05.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/images/single-product-slider/05.jpg"
+                                         alt="">
                                 </a>
                             </div>
                         </div>
@@ -161,9 +170,9 @@
     </div>
 </div>
 
-<!--=====  End of single product content  ======-->
+<!--===== End of single product content ======-->
 
-<!--=======  product description review   =======-->
+<!--======= product description review =======-->
 
 <div class="product-description-review-area mb-50">
     <div class="container">
@@ -174,14 +183,16 @@
                 <div class="tab-slider-wrapper product-description-review-container">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="description-tab" data-toggle="tab" href="#product-description" role="tab"
+                            <a class="nav-item nav-link active" id="description-tab" data-toggle="tab"
+                               href="#product-description" role="tab"
                                aria-selected="true">描述</a>
                             <a class="nav-item nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab"
                                aria-selected="false">评价</a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="product-description" role="tabpanel" aria-labelledby="description-tab">
+                        <div class="tab-pane fade show active" id="product-description" role="tabpanel"
+                             aria-labelledby="description-tab">
                             <!--=======  product description  =======-->
                             <div class="product-description">
                                 <p>商家所在地：${product.user.address}</p>
@@ -195,51 +206,51 @@
                         </div>
                         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                             <!--=======  review content  =======-->
-                        <c:if test="${reviews.size()==0}">
-                            <div class="product-ratting-wrap">
-                                <div class="ratting-list">
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>(0)</span>
+                            <c:if test="${reviews.size()==0}">
+                                <div class="product-ratting-wrap">
+                                    <div class="ratting-list">
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>(0)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
                                     </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
-                                    </div>
-                                </div>
-                                <div class="rattings-wrapper">
+                                    <div class="rattings-wrapper">
 
                                         <div class="sin-rattings">
                                             <div class="ratting-author">
@@ -249,76 +260,76 @@
                                         </div>
 
 
-                                </div>
-                            </div>
-                        </c:if>
-                        <c:if test="${reviews.size()>0}">
-                            <div class="product-ratting-wrap">
-                                <div class="ratting-list">
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>(5)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(3)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(1)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
-                                    </div>
-                                    <div class="sin-list float-left">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(0)</span>
                                     </div>
                                 </div>
-                                <c:forEach items="${reviews}" var="review">
-                                <div class="rattings-wrapper">
-
-                                    <div class="sin-rattings">
-                                        <div class="ratting-author">
-                                            <h3>${review.customer.name}</h3>
-                                            <div class="ratting-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <span>(5)</span>
-                                            </div>
+                            </c:if>
+                            <c:if test="${reviews.size()>0}">
+                                <div class="product-ratting-wrap">
+                                    <div class="ratting-list">
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>(5)</span>
                                         </div>
-                                        <p>${review.content}</p>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(3)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(1)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
+                                        <div class="sin-list float-left">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(0)</span>
+                                        </div>
                                     </div>
+                                    <c:forEach items="${reviews}" var="review">
+                                        <div class="rattings-wrapper">
+
+                                            <div class="sin-rattings">
+                                                <div class="ratting-author">
+                                                    <h3>${review.customer.name}</h3>
+                                                    <div class="ratting-star">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <span>(5)</span>
+                                                    </div>
+                                                </div>
+                                                <p>${review.content}</p>
+                                            </div>
 
 
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                                </c:forEach>
-                            </div>
-                        </c:if>
+                            </c:if>
                             <!--=======  End of review content  =======-->
                         </div>
                     </div>
@@ -330,10 +341,10 @@
     </div>
 </div>
 
-<!--=======  End of product description review   =======-->
+<!--======= End of product description review =======-->
 
 <!--=============================================
-=            related product slider         =
+= related product slider =
 =============================================-->
 
 <div class="related-product-slider-area mb-50">
@@ -355,32 +366,34 @@
                 <div class="fl-slider tab-product-slider">
                     <!--=======  single product  =======-->
                     <c:forEach items="${fivePro}" var="pf">
-                    <div class="fl-product">
-                        <div class="image">
-                            <a href="foreDetailUI?id=${pf.id}">
-                                <img src="${pageContext.request.contextPath}/${pf.imageurl}" class="img-fluid" alt="">
-                                <img src="${pageContext.request.contextPath}/${pf.imageurl}" class="img-fluid" alt="">
-                            </a>
-                            <!-- wishlist icon -->
-                            <span class="wishlist-icon">
-                                        <a href="#" ><i class="icon ion-md-heart-empty"></i></a>
+                        <div class="fl-product">
+                            <div class="image">
+                                <a href="foreDetailUI?id=${pf.id}">
+                                    <img src="${pageContext.request.contextPath}/${pf.imageurl}" class="img-fluid"
+                                         alt="">
+                                    <img src="${pageContext.request.contextPath}/${pf.imageurl}" class="img-fluid"
+                                         alt="">
+                                </a>
+                                <!-- wishlist icon -->
+                                <span class="wishlist-icon">
+                                        <a href="#"><i class="icon ion-md-heart-empty"></i></a>
                                 </span>
-                        </div>
-                        <div class="content">
-                            <h2 class="product-title"> <a href="foreDetailUI?id=${pf.id}">${pf.name}</a></h2>
-                            <div class="rating">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
                             </div>
-                            <p class="product-price">
-                                <span class="main-price discounted">$${pf.price+15.1}</span>
-                                <span class="discounted-price">$${pf.price}</span>
-                            </p>
+                            <div class="content">
+                                <h2 class="product-title"><a href="foreDetailUI?id=${pf.id}">${pf.name}</a></h2>
+                                <div class="rating">
+                                    <i class="fa fa-star active"></i>
+                                    <i class="fa fa-star active"></i>
+                                    <i class="fa fa-star active"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="product-price">
+                                    <span class="main-price discounted">$${pf.price+15.1}</span>
+                                    <span class="discounted-price">$${pf.price}</span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
                     </c:forEach>
                     <!--=======  End of single product  =======-->
                 </div>
@@ -391,7 +404,8 @@
 </div>
 
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"  id="myModal" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myModalLabel"
+     aria-hidden="true" data-backdrop="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!--登陆框头部-->
@@ -405,32 +419,34 @@
             </div>
             <!--登陆框中间部分(from表单)-->
             <div class="modal-body">
-               <%-- <form class="form-horizontal">--%>
-                   <div class="loginErrorMessageDiv">
-                       <div class="alert alert-danger" >
-                           <span class="errorMessage"></span>
-                       </div>
-                   </div>
-                    <!--用户框-->
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">用户名</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="username" required="required">
-                        </div>
+                <%-- <form class="form-horizontal">--%>
+                <div class="loginErrorMessageDiv">
+                    <div class="alert alert-danger">
+                        <span class="errorMessage"></span>
                     </div>
-                    <!--密码框-->
-                    <div class="form-group">
-                        <label for="password" class="col-sm-2 control-label" >密码</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="password" required="required">
-                        </div>
+                </div>
+                <!--用户框-->
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="username"
+                               required="required">
                     </div>
-                    <!--登陆按钮-->
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" id="modalLogin">登录</button>
-                        </div>
+                </div>
+                <!--密码框-->
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password"
+                               required="required">
                     </div>
+                </div>
+                <!--登陆按钮-->
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" id="modalLogin">登录</button>
+                    </div>
+                </div>
                 <%--</form>--%>
             </div>
         </div>
@@ -442,16 +458,16 @@
         $("div.loginErrorMessageDiv").hide();
         var number;
         //立即购买按钮
-        $("#nowPayment").click(function(){
+        $("#nowPayment").click(function () {
             //ajax判断是否登陆
             $.get(
                 "foreIsLogin",
-                function(result) {
-                    if (result=="true"){ //
+                function (result) {
+                    if (result == "true") { //
                         number = $("#num").val();
-                        var totalPrice = number*${product.price};
-                        location.href= "forebuyone?pid=${product.id}&number="+number+"&totalPrice="+totalPrice;
-                    }else {  //未登录
+                        var totalPrice = number *${product.price};
+                        location.href = "forebuyone?pid=${product.id}&number=" + number + "&totalPrice=" + totalPrice;
+                    } else {  //未登录
                         $('#myModal').modal('show')
                     }
                 }
@@ -461,23 +477,23 @@
         $("#add_cart").click(function () {
             $.get(
                 "foreIsLogin",
-                function(result) {
-                    if (result=="true"){ //已登录则加入购物车
+                function (result) {
+                    if (result == "true") { //已登录则加入购物车
                         //ajax添加到购物车
                         number = $("#num").val();
-                        var totalPrice = number*${product.price};
+                        var totalPrice = number *${product.price};
                         $.get(
                             "foreAddCart",
-                            {pid:${product.id},number:number,totalPrice:totalPrice},
-                            function(data){
-                                if(data=="success"){
+                            {pid:${product.id}, number: number, totalPrice: totalPrice},
+                            function (data) {
+                                if (data == "success") {
                                     alert("添加购物车成功");
-                                }else{
+                                } else {
                                     alert("添加购物车失败");
                                 }
                             }
                         );//添加购物车结束
-                    }else {  //未登录
+                    } else {  //未登录
                         $('#myModal').modal('show')
                     }
                 }
@@ -488,7 +504,7 @@
             var name = $("#name").val();
             var password = $("#password").val();
 
-            if(0==name.length||0==password.length){
+            if (0 == name.length || 0 == password.length) {
                 $("span.errorMessage").html("请输入账号密码");
                 $("div.loginErrorMessageDiv").show();
                 return false;
@@ -496,11 +512,11 @@
 
             $.get(
                 "foreMtLogin",
-                {name:name,password:password},
+                {name: name, password: password},
                 function (result) {
-                    if("true"==result){
+                    if ("true" == result) {
                         location.reload();
-                    }else{
+                    } else {
                         $("span.errorMessage").html("账号或密码错误");
                         $("div.loginErrorMessageDiv").show();
                     }
@@ -510,5 +526,5 @@
 
     });
 </script>
-<!--=====  End of related product slider  ======-->
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<!--===== End of related product slider ======-->
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

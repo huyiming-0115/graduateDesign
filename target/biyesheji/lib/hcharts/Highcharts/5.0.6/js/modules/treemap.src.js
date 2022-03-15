@@ -6,14 +6,14 @@
  *
  * License: www.highcharts.com/license
  */
-(function(factory) {
+(function (factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {
         factory(Highcharts);
     }
-}(function(Highcharts) {
-    (function(H) {
+}(function (Highcharts) {
+    (function (H) {
         /**
          * (c) 2014 Highsoft AS
          * Authors: Jon Arild Nygard / Oystein Moseng
@@ -21,7 +21,7 @@
          * License: www.highcharts.com/license
          */
         'use strict';
-
+        
         var seriesType = H.seriesType,
             seriesTypes = H.seriesTypes,
             map = H.map,
@@ -35,7 +35,7 @@
             Series = H.Series,
             stableSort = H.stableSort,
             color = H.Color,
-            eachObject = function(list, func, context) {
+            eachObject = function (list, func, context) {
                 var key;
                 context = context || this;
                 for (key in list) {
@@ -44,17 +44,17 @@
                     }
                 }
             },
-            reduce = function(arr, func, previous, context) {
+            reduce = function (arr, func, previous, context) {
                 context = context || this;
                 arr = arr || []; // @note should each be able to handle empty values automatically?
-                each(arr, function(current, i) {
+                each(arr, function (current, i) {
                     previous = func.call(context, previous, current, i, arr);
                 });
                 return previous;
             },
-            // @todo find correct name for this function. 
+            // @todo find correct name for this function.
             // @todo Similar to reduce, this function is likely redundant
-            recursive = function(item, func, context) {
+            recursive = function (item, func, context) {
                 var next;
                 context = context || this;
                 next = func.call(context, item);
@@ -62,7 +62,7 @@
                     recursive(next, func, context);
                 }
             };
-
+        
         // The Treemap series type
         seriesType('treemap', 'scatter', {
             showInLegend: false,
@@ -71,7 +71,7 @@
                 enabled: true,
                 defer: false,
                 verticalAlign: 'middle',
-                formatter: function() { // #2945
+                formatter: function () { // #2945
                     return this.point.name || this.point.id;
                 },
                 inside: true
@@ -91,8 +91,8 @@
                     y: 10
                 }
             },
-
-
+            
+            
             // Prototype members
         }, {
             pointArrayMap: ['value'],
@@ -110,8 +110,8 @@
              * @param {Array} ids List of all point ids.
              * @return {Object} Map from parent id to children index in data.
              */
-            getListOfParents: function(data, ids) {
-                var listOfParents = reduce(data, function(prev, curr, i) {
+            getListOfParents: function (data, ids) {
+                var listOfParents = reduce(data, function (prev, curr, i) {
                     var parent = pick(curr.parent, '');
                     if (prev[parent] === undefined) {
                         prev[parent] = [];
@@ -119,11 +119,11 @@
                     prev[parent].push(i);
                     return prev;
                 }, {});
-
+                
                 // If parent does not exist, hoist parent to root of tree.
-                eachObject(listOfParents, function(children, parent, list) {
+                eachObject(listOfParents, function (children, parent, list) {
                     if ((parent !== '') && (H.inArray(parent, ids) === -1)) {
-                        each(children, function(child) {
+                        each(children, function (child) {
                             list[''].push(child);
                         });
                         delete list[parent];
@@ -134,18 +134,18 @@
             /**
              * Creates a tree structured object from the series points
              */
-            getTree: function() {
+            getTree: function () {
                 var tree,
                     series = this,
-                    allIds = map(this.data, function(d) {
+                    allIds = map(this.data, function (d) {
                         return d.id;
                     }),
                     parentList = series.getListOfParents(this.data, allIds);
-
+                
                 series.nodeMap = [];
                 tree = series.buildNode('', -1, 0, parentList, null);
                 // Parents of the root node is by default visible
-                recursive(this.nodeMap[this.rootNode], function(node) {
+                recursive(this.nodeMap[this.rootNode], function (node) {
                     var next = false,
                         p = node.parent;
                     node.visible = true;
@@ -155,9 +155,9 @@
                     return next;
                 });
                 // Children of the root node is by default visible
-                recursive(this.nodeMap[this.rootNode].children, function(children) {
+                recursive(this.nodeMap[this.rootNode].children, function (children) {
                     var next = false;
-                    each(children, function(child) {
+                    each(children, function (child) {
                         child.visible = true;
                         if (child.children.length) {
                             next = (next || []).concat(child.children);
@@ -168,22 +168,22 @@
                 this.setTreeValues(tree);
                 return tree;
             },
-            init: function(chart, options) {
+            init: function (chart, options) {
                 var series = this;
                 Series.prototype.init.call(series, chart, options);
                 if (series.options.allowDrillToNode) {
                     series.drillTo();
                 }
             },
-            buildNode: function(id, i, level, list, parent) {
+            buildNode: function (id, i, level, list, parent) {
                 var series = this,
                     children = [],
                     point = series.points[i],
                     node,
                     child;
-
+                
                 // Actions
-                each((list[id] || []), function(i) {
+                each((list[id] || []), function (i) {
                     child = series.buildNode(series.points[i].id, i, (level + 1), list, id);
                     children.push(child);
                 });
@@ -201,26 +201,26 @@
                 }
                 return node;
             },
-            setTreeValues: function(tree) {
+            setTreeValues: function (tree) {
                 var series = this,
                     options = series.options,
                     childrenTotal = 0,
                     children = [],
                     val,
                     point = series.points[tree.i];
-
+                
                 // First give the children some values
-                each(tree.children, function(child) {
+                each(tree.children, function (child) {
                     child = series.setTreeValues(child);
                     children.push(child);
-
+                    
                     if (!child.ignore) {
                         childrenTotal += child.val;
                     } else {
                         // @todo Add predicate to avoid looping already ignored children
-                        recursive(child.children, function(children) {
+                        recursive(child.children, function (children) {
                             var next = false;
-                            each(children, function(node) {
+                            each(children, function (node) {
                                 extend(node, {
                                     ignore: true,
                                     isLeaf: false,
@@ -235,7 +235,7 @@
                     }
                 });
                 // Sort the children
-                stableSort(children, function(a, b) {
+                stableSort(children, function (a, b) {
                     return a.sortIndex - b.sortIndex;
                 });
                 // Set the values
@@ -261,7 +261,7 @@
              * @param {Object} node The node which is parent to the children.
              * @param {Object} area The rectangular area of the parent.
              */
-            calculateChildrenAreas: function(parent, area) {
+            calculateChildrenAreas: function (parent, area) {
                 var series = this,
                     options = series.options,
                     level = this.levelMap[parent.levelDynamic + 1],
@@ -269,17 +269,17 @@
                     alternate = options.alternateStartingDirection,
                     childrenValues = [],
                     children;
-
+                
                 // Collect all children which should be included
-                children = grep(parent.children, function(n) {
+                children = grep(parent.children, function (n) {
                     return !n.ignore;
                 });
-
+                
                 if (level && level.layoutStartingDirection) {
                     area.direction = level.layoutStartingDirection === 'vertical' ? 0 : 1;
                 }
                 childrenValues = series[algorithm](area, children);
-                each(children, function(child, index) {
+                each(children, function (child, index) {
                     var values = childrenValues[index];
                     child.values = merge(values, {
                         val: child.childrenTotal,
@@ -295,11 +295,11 @@
                     }
                 });
             },
-            setPointValues: function() {
+            setPointValues: function () {
                 var series = this,
                     xAxis = series.xAxis,
                     yAxis = series.yAxis;
-                each(series.points, function(point) {
+                each(series.points, function (point) {
                     var node = point.node,
                         values = node.pointValues,
                         x1,
@@ -307,7 +307,7 @@
                         y1,
                         y2,
                         crispCorr = 0.5; // Assume 1px borderWidth for simplicity
-
+                    
                     // Points which is ignored, have no values.
                     if (values && node.visible) {
                         x1 = Math.round(xAxis.translate(values.x, 0, 0, 0, 1)) - crispCorr;
@@ -331,7 +331,7 @@
                     }
                 });
             },
-            setColorRecursive: function(node, color, colorIndex) {
+            setColorRecursive: function (node, color, colorIndex) {
                 var series = this,
                     point,
                     level;
@@ -345,16 +345,16 @@
                         point.color = color;
                         point.colorIndex = colorIndex;
                     }
-
-                    // Do it all again with the children	
+                    
+                    // Do it all again with the children
                     if (node.children.length) {
-                        each(node.children, function(child) {
+                        each(node.children, function (child) {
                             series.setColorRecursive(child, color, colorIndex);
                         });
                     }
                 }
             },
-            algorithmGroup: function(h, w, d, p) {
+            algorithmGroup: function (h, w, d, p) {
                 this.height = h;
                 this.width = w;
                 this.plot = p;
@@ -374,11 +374,11 @@
                     nW: 0,
                     nR: 0,
                     lR: 0,
-                    aspectRatio: function(w, h) {
+                    aspectRatio: function (w, h) {
                         return Math.max((w / h), (h / w));
                     }
                 };
-                this.addElement = function(el) {
+                this.addElement = function (el) {
                     this.lP.total = this.elArr[this.elArr.length - 1];
                     this.total = this.total + el;
                     if (this.direction === 0) {
@@ -402,14 +402,14 @@
                     }
                     this.elArr.push(el);
                 };
-                this.reset = function() {
+                this.reset = function () {
                     this.nW = 0;
                     this.lW = 0;
                     this.elArr = [];
                     this.total = 0;
                 };
             },
-            algorithmCalcPoints: function(directionChange, last, group, childrenArea) {
+            algorithmCalcPoints: function (directionChange, last, group, childrenArea) {
                 var pX,
                     pY,
                     pW,
@@ -426,7 +426,7 @@
                 } else {
                     keep = group.elArr[group.elArr.length - 1];
                 }
-                each(group.elArr, function(p) {
+                each(group.elArr, function (p) {
                     if (last || (i < end)) {
                         if (group.direction === 0) {
                             pX = plot.x;
@@ -470,7 +470,7 @@
                     group.addElement(keep);
                 }
             },
-            algorithmLowAspectRatio: function(directionChange, parent, children) {
+            algorithmLowAspectRatio: function (directionChange, parent, children) {
                 var childrenArea = [],
                     series = this,
                     pTot,
@@ -484,7 +484,7 @@
                     end = children.length - 1,
                     group = new this.algorithmGroup(parent.height, parent.width, direction, plot); // eslint-disable-line new-cap
                 // Loop through and calculate all areas
-                each(children, function(child) {
+                each(children, function (child) {
                     pTot = (parent.width * parent.height) * (child.val / parent.val);
                     group.addElement(pTot);
                     if (group.lP.nR > group.lP.lR) {
@@ -498,7 +498,7 @@
                 });
                 return childrenArea;
             },
-            algorithmFill: function(directionChange, parent, children) {
+            algorithmFill: function (directionChange, parent, children) {
                 var childrenArea = [],
                     pTot,
                     direction = parent.direction,
@@ -510,7 +510,7 @@
                     pY,
                     pW,
                     pH;
-                each(children, function(child) {
+                each(children, function (child) {
                     pTot = (parent.width * parent.height) * (child.val / parent.val);
                     pX = x;
                     pY = y;
@@ -537,36 +537,36 @@
                 });
                 return childrenArea;
             },
-            strip: function(parent, children) {
+            strip: function (parent, children) {
                 return this.algorithmLowAspectRatio(false, parent, children);
             },
-            squarified: function(parent, children) {
+            squarified: function (parent, children) {
                 return this.algorithmLowAspectRatio(true, parent, children);
             },
-            sliceAndDice: function(parent, children) {
+            sliceAndDice: function (parent, children) {
                 return this.algorithmFill(true, parent, children);
             },
-            stripes: function(parent, children) {
+            stripes: function (parent, children) {
                 return this.algorithmFill(false, parent, children);
             },
-            translate: function() {
+            translate: function () {
                 var pointValues,
                     seriesArea,
                     tree,
                     val;
-
+                
                 // Call prototype function
                 Series.prototype.translate.call(this);
-
+                
                 // Assign variables
                 this.rootNode = pick(this.options.rootId, '');
                 // Create a object map from level to options
-                this.levelMap = reduce(this.options.levels, function(arr, item) {
+                this.levelMap = reduce(this.options.levels, function (arr, item) {
                     arr[item.level] = item;
                     return arr;
                 }, {});
                 tree = this.tree = this.getTree(); // @todo Only if series.isDirtyData is true
-
+                
                 // Calculate plotting values.
                 this.axisRatio = (this.xAxis.len / this.yAxis.len);
                 this.nodeMap[''].pointValues = pointValues = {
@@ -581,14 +581,14 @@
                     val: tree.val
                 });
                 this.calculateChildrenAreas(tree, seriesArea);
-
+                
                 // Logic for point colors
                 if (this.colorAxis) {
                     this.translateColors();
                 } else if (!this.options.colorByPoint) {
                     this.setColorRecursive(this.tree);
                 }
-
+                
                 // Update axis extremes according to the root node.
                 if (this.options.allowDrillToNode) {
                     val = this.nodeMap[this.rootNode].pointValues;
@@ -597,7 +597,7 @@
                     this.xAxis.setScale();
                     this.yAxis.setScale();
                 }
-
+                
                 // Assign values to points.
                 this.setPointValues();
             },
@@ -607,31 +607,31 @@
              * - Options set on series.levels is merged in.
              * - Width of the dataLabel is set to match the width of the point shape.
              */
-            drawDataLabels: function() {
+            drawDataLabels: function () {
                 var series = this,
-                    points = grep(series.points, function(n) {
+                    points = grep(series.points, function (n) {
                         return n.node.visible;
                     }),
                     options,
                     level;
-                each(points, function(point) {
+                each(points, function (point) {
                     level = series.levelMap[point.node.levelDynamic];
                     // Set options to new object to avoid problems with scope
                     options = {
                         style: {}
                     };
-
+                    
                     // If not a leaf, then label should be disabled as default
                     if (!point.node.isLeaf) {
                         options.enabled = false;
                     }
-
+                    
                     // If options for level exists, include them as well
                     if (level && level.dataLabels) {
                         options = merge(options, level.dataLabels);
                         series._hasPointLabels = true;
                     }
-
+                    
                     // Set dataLabel width to the width of the point shape.
                     if (point.shapeArgs) {
                         options.style.width = point.shapeArgs.width;
@@ -641,17 +641,17 @@
                             });
                         }
                     }
-
+                    
                     // Merge custom options with point options
                     point.dlOptions = merge(options, point.options.dataLabels);
                 });
                 Series.prototype.drawDataLabels.call(this);
             },
-
+            
             /**
              * Over the alignment method by setting z index
              */
-            alignDataLabel: function(point) {
+            alignDataLabel: function (point) {
                 seriesTypes.column.prototype.alignDataLabel.apply(this, arguments);
                 if (point.dataLabel) {
                     point.dataLabel.attr({
@@ -659,19 +659,18 @@
                     });
                 }
             },
-
-
-
+            
+            
             /**
              * Extending ColumnSeries drawPoints
              */
-            drawPoints: function() {
+            drawPoints: function () {
                 var series = this,
-                    points = grep(series.points, function(n) {
+                    points = grep(series.points, function (n) {
                         return n.node.visible;
                     });
-
-                each(points, function(point) {
+                
+                each(points, function (point) {
                     var groupKey = 'levelGroup-' + point.node.levelDynamic;
                     if (!series[groupKey]) {
                         series[groupKey] = series.chart.renderer.g(groupKey)
@@ -681,14 +680,14 @@
                             .add(series.group);
                     }
                     point.group = series[groupKey];
-
+                    
                 });
                 // Call standard drawPoints
                 seriesTypes.column.prototype.drawPoints.call(this);
-
-                // If drillToNode is allowed, set a point cursor on clickables & add drillId to point 
+                
+                // If drillToNode is allowed, set a point cursor on clickables & add drillId to point
                 if (series.options.allowDrillToNode) {
-                    each(points, function(point) {
+                    each(points, function (point) {
                         if (point.graphic) {
                             point.drillId = series.options.interactByLeaf ? series.drillToByLeaf(point) : series.drillToByGroup(point);
                         }
@@ -698,13 +697,13 @@
             /**
              * Add drilling on the suitable points
              */
-            drillTo: function() {
+            drillTo: function () {
                 var series = this;
-                H.addEvent(series, 'click', function(event) {
+                H.addEvent(series, 'click', function (event) {
                     var point = event.point,
                         drillId = point.drillId,
                         drillName;
-                    // If a drill id is returned, add click event and cursor. 
+                    // If a drill id is returned, add click event and cursor.
                     if (drillId) {
                         drillName = series.nodeMap[series.rootNode].name || series.rootNode;
                         point.setState(''); // Remove hover
@@ -719,7 +718,7 @@
              * @param {Object} point
              * @return {string || boolean} Drill to id or false when point should not have a click event
              */
-            drillToByGroup: function(point) {
+            drillToByGroup: function (point) {
                 var series = this,
                     drillId = false;
                 if ((point.node.level - series.nodeMap[series.rootNode].level) === 1 && !point.node.isLeaf) {
@@ -733,7 +732,7 @@
              * @param {Object} point
              * @return {string || boolean} Drill to id or false when point should not have a click event
              */
-            drillToByLeaf: function(point) {
+            drillToByLeaf: function (point) {
                 var series = this,
                     drillId = false,
                     nodeParent;
@@ -748,7 +747,7 @@
                 }
                 return drillId;
             },
-            drillUp: function() {
+            drillUp: function () {
                 var drillPoint = null,
                     node,
                     parent;
@@ -760,7 +759,7 @@
                         drillPoint = this.nodeMap[''];
                     }
                 }
-
+                
                 if (drillPoint !== null) {
                     this.drillToNode(drillPoint.id);
                     if (drillPoint.id === '') {
@@ -771,36 +770,36 @@
                     }
                 }
             },
-            drillToNode: function(id) {
+            drillToNode: function (id) {
                 this.options.rootId = id;
                 this.isDirty = true; // Force redraw
                 this.chart.redraw();
             },
-            showDrillUpButton: function(name) {
+            showDrillUpButton: function (name) {
                 var series = this,
                     backText = (name || '< Back'),
                     buttonOptions = series.options.drillUpButton,
                     attr,
                     states;
-
+                
                 if (buttonOptions.text) {
                     backText = buttonOptions.text;
                 }
                 if (!this.drillUpButton) {
                     attr = buttonOptions.theme;
                     states = attr && attr.states;
-
+                    
                     this.drillUpButton = this.chart.renderer.button(
-                            backText,
-                            null,
-                            null,
-                            function() {
-                                series.drillUp();
-                            },
-                            attr,
-                            states && states.hover,
-                            states && states.select
-                        )
+                        backText,
+                        null,
+                        null,
+                        function () {
+                            series.drillUp();
+                        },
+                        attr,
+                        states && states.hover,
+                        states && states.select
+                    )
                         .attr({
                             align: buttonOptions.position.align,
                             zIndex: 7
@@ -809,24 +808,24 @@
                         .align(buttonOptions.position, false, buttonOptions.relativeTo || 'plotBox');
                 } else {
                     this.drillUpButton.attr({
-                            text: backText
-                        })
+                        text: backText
+                    })
                         .align();
                 }
             },
             buildKDTree: noop,
             drawLegendSymbol: H.LegendSymbolMixin.drawRectangle,
-            getExtremes: function() {
+            getExtremes: function () {
                 // Get the extremes from the value data
                 Series.prototype.getExtremes.call(this, this.colorValueData);
                 this.valueMin = this.dataMin;
                 this.valueMax = this.dataMax;
-
+                
                 // Get the extremes from the y data
                 Series.prototype.getExtremes.call(this);
             },
             getExtremesFromAll: true,
-            bindAxes: function() {
+            bindAxes: function () {
                 var treeAxis = {
                     endOnTick: false,
                     gridLineWidth: 0,
@@ -845,30 +844,30 @@
                 H.extend(this.yAxis.options, treeAxis);
                 H.extend(this.xAxis.options, treeAxis);
             }
-
+            
             // Point class
         }, {
-            getClassName: function() {
+            getClassName: function () {
                 var className = H.Point.prototype.getClassName.call(this),
                     series = this.series,
                     options = series.options;
-
+                
                 // Above the current level
                 if (this.node.level <= series.nodeMap[series.rootNode].level) {
                     className += ' highcharts-above-level';
-
+                    
                 } else if (!this.node.isLeaf && !pick(options.interactByLeaf, !options.allowDrillToNode)) {
                     className += ' highcharts-internal-node-interactive';
-
+                    
                 } else if (!this.node.isLeaf) {
                     className += ' highcharts-internal-node';
                 }
                 return className;
             },
-            isValid: function() {
+            isValid: function () {
                 return isNumber(this.value);
             },
-            setState: function(state) {
+            setState: function (state) {
                 H.Point.prototype.setState.call(this, state);
                 this.graphic.attr({
                     zIndex: state === 'hover' ? 1 : 0
@@ -876,6 +875,6 @@
             },
             setVisible: seriesTypes.pie.prototype.pointClass.prototype.setVisible
         });
-
+        
     }(Highcharts));
 }));

@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ include file="../../foreinclude/foreHander.jsp"%>
+<%@ include file="../../foreinclude/foreHander.jsp" %>
 
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -34,10 +34,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            Login Register page content         =
+= Login Register page content =
 =============================================-->
 
 <div class="page-section mb-50">
@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-3 col-xs-12"></div>
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-                <form action="/fore/foreRegister" method="post" class="loginForm" >
+                <form action="/fore/foreRegister" method="post" class="loginForm">
 
                     <div class="login-form">
                         <h4 class="login-title">Register</h4>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-6 mb-20">
                                 <label>手机:</label>
-                                <input class="mb-0" type="password"  name="phone" id="phone" placeholder="Password">
+                                <input class="mb-0" type="password" name="phone" id="phone" placeholder="Password">
                             </div>
 
                             <div class="col-12">
@@ -81,13 +81,13 @@
     </div>
 </div>
 
-<!--=====  End of Login Register page content  ======-->
+<!--===== End of Login Register page content ======-->
 <script src="${pageContext.request.contextPath}/js/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
         //验证不能为空
-        $("form.loginForm").submit(function(){
-            if(0==$("#name").val().length||0==$("#password").val().length){
+        $("form.loginForm").submit(function () {
+            if (0 == $("#name").val().length || 0 == $("#password").val().length) {
                 alert("账号不能为空");
                 return false;
             }
@@ -96,4 +96,4 @@
     })
 </script>
 
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<%@ include file="../../foreinclude/foreFooter.jsp" %>

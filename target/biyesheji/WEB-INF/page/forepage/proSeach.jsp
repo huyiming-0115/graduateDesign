@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../foreinclude/foreHander1.jsp"%>
+<%@ include file="../../foreinclude/foreHander1.jsp" %>
 <!--=============================================
-=            breadcrumb area         =
+= breadcrumb area =
 =============================================-->
 
 <div class="breadcrumb-area pt-15 pb-15">
@@ -32,10 +32,10 @@
     </div>
 </div>
 
-<!--=====  End of breadcrumb area  ======-->
+<!--===== End of breadcrumb area ======-->
 
 <!--=============================================
-=            shop page content         =
+= shop page content =
 =============================================-->
 
 <div class="shop-page-content mb-50">
@@ -52,7 +52,7 @@
                             <!--=======  view mode  =======-->
                             <div class="view-mode-icons mb-xs-10">
                                 <a href="#" data-target="grid"><i class="icon ion-md-apps"></i></a>
-                                <a class="active"  href="#" data-target="list"><i class="icon ion-ios-list"></i></a>
+                                <a class="active" href="#" data-target="list"><i class="icon ion-ios-list"></i></a>
                             </div>
                             <!--=======  End of view mode  =======-->
 
@@ -75,76 +75,80 @@
 
                 <!--=======  shop product display area  =======-->
                 <div class="shop-product-wrap list row mb-30 no-gutters">
-                <c:forEach items="${products}" var="p">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <!--=======  grid view product  =======-->
+                    <c:forEach items="${products}" var="p">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!--=======  grid view product  =======-->
 
-                        <!--=======  single product  =======-->
+                            <!--=======  single product  =======-->
 
-                        <div class="fl-product shop-grid-view-product">
-                            <div class="image">
-                                <a href="foreDetailUI?id=${p.id}">
-                                    <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="">
-                                    <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="">
-                                </a>
-                                <!-- wishlist icon -->
-                                <span class="wishlist-icon">
-                                            <a href="#" ><i class="icon ion-md-heart-empty"></i></a>
+                            <div class="fl-product shop-grid-view-product">
+                                <div class="image">
+                                    <a href="foreDetailUI?id=${p.id}">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="">
+                                    </a>
+                                    <!-- wishlist icon -->
+                                    <span class="wishlist-icon">
+                                            <a href="#"><i class="icon ion-md-heart-empty"></i></a>
                                     </span>
-                            </div>
-                            <div class="content">
-                                <h2 class="product-title"> <a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
-                                <div class="rating">
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
                                 </div>
-                                <p class="product-price">
-                                    <span class="main-price discounted">$${p.price+15}</span>
-                                    <span class="discounted-price">$${p.price}</span>
-                                </p>
+                                <div class="content">
+                                    <h2 class="product-title"><a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
+                                    <div class="rating">
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="product-price">
+                                        <span class="main-price discounted">$${p.price+15}</span>
+                                        <span class="discounted-price">$${p.price}</span>
+                                    </p>
 
-                            </div>
-                        </div>
-
-                        <!--=======  End of single product  =======-->
-
-                        <!--=======  End of grid view product  =======-->
-
-                        <!--=======  list view product  =======-->
-
-                        <div class="fl-product shop-list-view-product">
-                            <div class="image">
-                                <a href="foreDetailUI?id=${p.id}">
-                                    <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="" width="50px" height="50px">
-                                    <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid" alt="" width="50px" height="50px">
-                                </a>
-                            </div>
-                            <div class="content" style="padding-top: 55px">
-                                <h2 class="product-title"> <a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
-                                <div class="rating">
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
                                 </div>
-                                <br/>
-                                <p>${p.miaoshu}</p>
-                                <p class="product-price">
-                                    <span class="main-price discounted">$${p.price+15}</span>
-                                    <span class="discounted-price">$${p.price}</span>
-                                </p>
                             </div>
 
+                            <!--=======  End of single product  =======-->
 
+                            <!--=======  End of grid view product  =======-->
+
+                            <!--=======  list view product  =======-->
+
+                            <div class="fl-product shop-list-view-product">
+                                <div class="image">
+                                    <a href="foreDetailUI?id=${p.id}">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="" width="50px" height="50px">
+                                        <img src="${pageContext.request.contextPath}/${p.imageurl}" class="img-fluid"
+                                             alt="" width="50px" height="50px">
+                                    </a>
+                                </div>
+                                <div class="content" style="padding-top: 55px">
+                                    <h2 class="product-title"><a href="foreDetailUI?id=${p.id}">${p.name}</a></h2>
+                                    <div class="rating">
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <br/>
+                                    <p>${p.miaoshu}</p>
+                                    <p class="product-price">
+                                        <span class="main-price discounted">$${p.price+15}</span>
+                                        <span class="discounted-price">$${p.price}</span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+
+                            <!--=======  End of list view product  =======-->
                         </div>
-
-                        <!--=======  End of list view product  =======-->
-                    </div>
-                </c:forEach>
+                    </c:forEach>
 
 
                 </div>
@@ -158,7 +162,7 @@
                         <div class="pagination-area ">
                             <ul>
                                 <li <c:if test="${!page.hasPreviouse}">class="disabled"</c:if>>
-                                    <a  href="?start=0">
+                                    <a href="?start=0">
                                         <span aria-hidden="true">首页</span>
                                     </a>
                                 </li>
@@ -186,5 +190,5 @@
     </div>
 </div>
 
-<!--=====  End of shop page content  ======-->
-<%@ include file="../../foreinclude/foreFooter.jsp"%>
+<!--===== End of shop page content ======-->
+<%@ include file="../../foreinclude/foreFooter.jsp" %>
